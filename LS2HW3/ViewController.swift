@@ -15,8 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // lineBoxes(count: 3) // 3-1
-        //stairsBoxes(count: 4)
-        Piramid(count: 6)
+        stairsBoxes(count: 4)
+        //Piramid(count: 6)
         
         // Do any additional setup after loading the view.
     }
@@ -43,20 +43,18 @@ class ViewController: UIViewController {
         let offset = 20
         var counter = 0
         
-        var line = 1
-        for _ in 0..<count {
-            if count>=line {
+        for i in 0..<count {
+            if count>=i {
                 counter = 0
-                for _ in 0..<(count-(line-1)) {
+                for _ in 0..<(count-(i)) {
                     let boxW = UIView()
                     boxW.backgroundColor = UIColor.blue
                     let xCord = width + width * counter + counter * offset
-                    let yCord = height*(line-1) + offset*line + height * counter + counter * offset
+                    let yCord = height*(i) + offset*i + height * counter + counter * offset
                     boxW.frame = CGRect(x: xCord, y: yCord, width: width, height: height)
                     view.addSubview(boxW)
                     counter += 1
                 }
-                line += 1
             }
         }
     }
